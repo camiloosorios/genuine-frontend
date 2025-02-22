@@ -8,8 +8,8 @@
   <title>GENUINE digitalschool</title>
 </head>
 
-<body class="h-screen py-1 font-['Outfit'] bg-[#efefef] w-full p-5 text-[#133072]">
-  <div class="flex w-full h-full py-5">
+<body class="h-screen py-1 font-['Outfit'] bg-[#efefef] p-5 text-[#133072] max-w-screen overflow-x-hidden">
+  <div class="flex w-full h-full py-5 overflow-x-hidden">
     <div class="w-full h-full overflow-y-scroll overflow-x-hidden rounded-xl">
       <main id="inicio"
         class="relative w-full xl:w-3/4 h-[70vh] xl:h-full bg-[url('/images/image-main.webp')] bg-cover bg-center bg-no-repeat xl:bg-[length:150%] xl:bg-left-bottom pt-5 rounded-xl">
@@ -66,33 +66,38 @@
           <div class="flex flex-col gap-2 lg:gap-5 lg:flex-row lg:px-5 xl:px-16 lg:items-center my-10">
             <h3 class="text-xl font-bold text-center">Conoce el nuestro aquí</h3>
             <a href="https://studyatgenuine.com/registro-legal/" target="_blank"
-              class="px-5 py-4 text-white font-semibold bg-[#133072] rounded-xl text-xl mx-auto block xl:m-0 cursor-pointer">Registro
+              class="px-5 py-4 text-white font-semibold bg-[#133072] rounded-xl text-xl mx-auto block xl:m-0 cursor-pointer text-center">Registro
               legal</a>
           </div>
         </div>
         <img src="/images/Foto para bilinguismo 1.png" alt="Foto bilinguismo 1"
           class="w-full h-full rounded-b-xl lg:rounded-none">
       </section>
-      <section class="bg-white w-full xl:w-3/4 rounded-xl pt-5 mt-5 xl:mt-10">
-        <div class="flex flex-col lg:flex-row w-full">
+      <section class="bg-white w-full xl:w-3/4 rounded-xl pt-5 mt-5 xl:mt-10 overflow-x-hidden">
+        <div class="flex flex-col lg:flex-row w-full justify-between">
           <h2 class="text-2xl lg:text-4xl xl:text-5xl font-bold mb-2 px-10">Somos <br>del mundo</h2>
-          <div
-            class="flex flex-col xl:flex-row items-center xl:gap-2 border-3 border-[#ff4e07] text-[#ff4e07] rounded-xl text-center py-2 mb-2 xl:mb-0 mx-10 px-7 xl:h-16 justify-center">
-            <p class="font-bold text-3xl m-0">+ 400</p>
-            <p class="font-bold text-xl m-0">Estudiantes</p>
-          </div>
-          <div
-            class="flex flex-col xl:flex-row items-center xl:gap-2 border-3 border-[#d5adfb] text-[#d5adfb] rounded-xl text-center mb-2 xl:mb-0 mx-10 px-7 xl:h-16 min-w-56 justify-center">
-            <p class="font-bold text-3xl">28</p>
-            <p class="font-bold text-xl">Staff</p>
-          </div>
-          <div
-            class="flex flex-col xl:flex-row items-center xl:gap-2 border-3 border-[#602680] text-[#602680] rounded-xl text-center py-2 mb-2 xl:mb-0 mx-10 px-7 xl:h-16 justify-center">
-            <p class="font-bold text-3xl">44</p>
-            <p class="font-bold text-xl">Profesores</p>
+          <div class="lg:flex justify-evenly w-full">
+            <div
+              class="flex flex-col xl:flex-row items-center xl:gap-2 border-3 border-[#ff4e07] text-[#ff4e07] rounded-xl text-center py-2 mb-2 xl:mb-0 mx-10 lg:mx-0 px-7 xl:h-16 justify-center lg:min-w-52 xl:min-w-64">
+              <div class="flex">
+                <p class="font-bold text-3xl m-0">+</p>
+                <p class="font-bold text-3xl m-0" id="students-count">0</p>
+              </div>
+              <p class="font-bold text-xl m-0">Estudiantes</p>
+            </div>
+            <div
+              class="flex flex-col xl:flex-row items-center xl:gap-2 border-3 border-[#d5adfb] text-[#d5adfb] rounded-xl text-center mb-2 xl:mb-0 mx-10 lg:mx-0 px-7 xl:h-16 justify-center  lg:min-w-52 xl:min-w-64">
+              <p class="font-bold text-3xl" id="staff-count">0</p>
+              <p class="font-bold text-xl">Staff</p>
+            </div>
+            <div
+              class="flex flex-col xl:flex-row items-center xl:gap-2 border-3 border-[#602680] text-[#602680] rounded-xl text-center py-2 mb-2 xl:mb-0 mx-10 lg:mx-0 px-7 xl:h-16 justify-center lg:min-w-52 xl:min-w-64">
+              <p class="font-bold text-3xl" id="teachers-count">0</p>
+              <p class="font-bold text-xl">Profesores</p>
+            </div>
           </div>
         </div>
-        <div class="flex flex-col lg:flex-row-reverse justify-between">
+        <div class="flex flex-col lg:flex-row-reverse justify-end">
           <div class="flex items-center">
             <img src="/icons/world-map.svg" alt="Mapa del mundo">
           </div>
@@ -167,6 +172,25 @@
         </nav>
       </div>
     </aside>
+    <button id="openMobile" class="xl:hidden absolute top-10 right-5 z-1">
+      <img src="/icons/Iso GE.svg" alt="Menu button">
+    </button>
+  </div>
+  <div id="overlay" class="hidden absolute top-0 left-0 bg-black opacity-50 h-screen w-screen"></div>
+  <div id="mobileMenu" class="w-0 bg-white z-100 h-screen absolute top-0 right-0 overflow-hidden">
+    <nav class="mt-5">
+      <div class="flex justify-between items-center px-5 pb-5">
+        <img src="/icons/close.svg" alt="Close button" class="cursor-pointer" id="closeMobile">
+      </div>
+      <div id="menuContent">
+        <ul class="flex flex-col">
+          <li class="py-2 px-5 font-bold"><a href="#inicio">Inicio</a></li>
+          <li class="py-2 px-5 font-bold"><a href="#quienes-somos">¿Quiénes somos?</a></li>
+          <li class="py-2 px-5 font-bold"><a href="#estadounidenses">Somos Estadounidenses</a></li>
+          <li class="py-2 px-5 font-bold"><a href="#unete">Únete a Genuine</a></li>
+        </ul>
+      </div>
+    </nav>
   </div>
   <script type="module" src="./src/main.js"></script>
 </body>

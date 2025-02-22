@@ -5,9 +5,5 @@ export default defineConfig({
     base: '/',
     plugins: [
         tailwindcss(),
-    ],
-    build: {
-        outDir: 'dist',
-        assetsDir: 'assets',
-    },
+    ]
 });
